@@ -5,7 +5,12 @@ const showMoreBtn = document.querySelector(".btn-load");
 const categoriesContainer = document.querySelector(".category-container");
 const categoriesList = document.querySelectorAll(".category");
 
-console.log(navBarList);
+const registerForm = document.getElementById("form-contacto");
+const nameInput = document.getElementById("form-nombre");
+const dirInput = document.getElementById("form-direccion");
+const emailInput = document.getElementById("form-email");
+const phoneInput = document.getElementById("form-tel");
+
 
 //menu hamburguesa
 const mostrarMenu = () => {
@@ -111,11 +116,145 @@ const applyFilter = ({ target }) => {
 	renderProducts(appState.products[0]);
 };
 
+// Validación formulario
+
+//---------------Funciones auxiliares----------------
+
+const isEmpty = (input) => {
+	return !input.value.trim().length;
+};
+
+const isBetween = (input, min, max) => {
+	return input.value.length >= min && input.value.length <= max;
+};
+
+const isEmailValid = (input) => {
+	const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+	return re.test(input.value.trim());
+};
+
+
+const isPassSecure = (input) => {
+	const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+	return re.test(input.value.trim());
+};
+
+const isPhoneValid = (input) => {
+	const re = /^[0-9]{10}$/;
+	return re.test(input.value.trim());
+};
+
+const showError = (input, message) => {
+	const formField = input.parentElement;
+	formField.classList.remove("success");
+	formField.classList.add("error");
+	const error = formField.querySelector("small");
+	error.style.display = "block";
+	error.textContent = message;
+};
+
+const showSuccess = (input) => {
+	const formField = input.parentElement;
+	formField.classList.remove("error");
+	formField.classList.add("success");
+	const error = formField.querySelector("small");
+	error.style.display = "none";
+	error.textContent = "";
+};
+
+//-------------Funciones de validación de inputs-------------
+
+const checkTextInput = (input) => {
+	let valid = false;
+	const minCharacters = 3;
+	const maxCharacters = 16;
+	//si el input esta vacio, mostramos error
+	if (isEmpty(input)) {
+		showError(input, "Este campo es obligatorio");
+		return;
+	}
+	//Si el input tiene mal la cantidad de caracteres, mostramos error
+	if (!isBetween(input, minCharacters, maxCharacters)) {
+		showError(
+			input,
+			`Este campo debe tener entre ${minCharacters} y ${maxCharacters} caracteres`
+		);
+		return;
+	}
+	showSuccess(input);
+	valid = true;
+	return valid;
+};
+
+const checkEmail = (input) => {
+	let valid = false;
+
+	if (isEmpty(input)) {
+		showError(input, "El email es obligatorio");
+		return;
+	}
+	//Si es un mail
+	if (!isEmailValid(input)) {
+		showError(input, "El mail no es válido");
+		return;
+	}
+
+	showSuccess(input);
+	valid = true;
+	return valid;
+};
+
+const checkPhone = (input) => {
+	let valid = false;
+
+	if (isEmpty(input)) {
+		showError(input, "El teléfono es obligatorio");
+		return;
+	}
+	if (!isPhoneValid(input)) {
+		showError(input, "El telefono no es válido");
+		return;
+	}
+
+	showSuccess(input);
+	valid = true;
+	return valid;
+};
+
+
+// ---------validación general y almacenamiento de datos--------
+
+const submitHandler = (e) => {
+	e.preventDefault();
+	let isNameValid = checkTextInput(nameInput);
+	let isDirValid = checkTextInput(dirInput);
+	let isEmailValid = checkEmail(emailInput);
+	let isPhoneValid = checkPhone(phoneInput);
+
+	let isValidForm =
+		isNameValid &&
+		isDirValid &&
+		isEmailValid &&
+		isPhoneValid;
+
+	if (isValidForm) {
+		alert("Gracias por contactarnos!!!!");
+		window.location.href = "index.html";
+	}
+};
+
 const init = () => {
     menu.addEventListener("click", mostrarMenu);
     renderProducts(appState.products[appState.currentProductsIndex]);
     showMoreBtn.addEventListener("click", showMoreProducts);
     categoriesContainer.addEventListener("click", applyFilter);
+
+
+	registerForm.addEventListener("submit", submitHandler);
+	nameInput.addEventListener("input", () => checkTextInput(nameInput));
+	dirInput.addEventListener("input", () => checkTextInput(dirInput));
+	emailInput.addEventListener("input", () => checkEmail(emailInput));
+	phoneInput.addEventListener("input", () => checkPhone(phoneInput));
 };
 
 init();

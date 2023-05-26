@@ -527,12 +527,14 @@ background-color: var(--celeste);
     gap: 9px;
 }
 
-.formulario input {
+.formulario input{
     border: none;
     background-color: var(--celeste);
     border-bottom: 1px solid black;
     padding: 10px; 
+    width: 100%;
 }
+
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -541,7 +543,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0; /* Asegura que no haya margen adicional */
 }
 
-.formulario input::placeholder{
+.formulario div input::placeholder{
     color: var(--negro);
 }
 
@@ -612,7 +614,7 @@ footer {
     color: var(--blanco);
 }
 
-
+/* DINAMISMO JS*/
 .show {
     display: flex;
 }
@@ -624,3 +626,30 @@ footer {
 .active{
     background-color: var(--celeste);
 }
+
+
+/* ERRORES FORMULARIOS
+/* Error / Success */
+.form__field.error input {
+    border: 1px solid #dc3545;
+  }
+  
+  .form__field small {
+    color: #dc3545;
+    max-width: 350px;
+    text-align: center;
+    display: none;
+  }
+  
+  .form__field.success input {
+    border: 1px solid #28a745;
+  }
+  
+  #form__error {
+    color: #dc3545;
+    font-size: 1rem;
+    margin: 8px 0px;
+    max-width: 350px;
+    text-align: center;
+  }
+  
