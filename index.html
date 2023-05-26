@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a21d7ac1f5.js" crossorigin="anonymous"></script>
+    <title>My IceCream</title>
+    <link rel="stylesheet" href="./Assets/style.css">
+    <link rel="stylesheet" href="./Assets/animaciones.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="main-title">My IceCream <i class="fa-solid fa-ice-cream"></i></h1>
+
+        <nav class="navbar">
+            <label class="header-btn" for="menu-toggle" id="menu-toggle">
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </label>
+            <!-- <input type="checkbox" class="check" id="menu-toggle"> -->
+            <ul class="navbar-list">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="">
+                <i class="fa-solid fa-cart-shopping cart"></i>
+                <span id="totalItems"></span>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="decoration">
+            <section class="hero" id="hero">
+                <div class="presentacion">
+                    <h2>La elección artesanal por excelencia</h2>
+                    <p>Conoce nuestro emprendimiento y encontra los mejores sabores para tu paladar</p>
+                    <div class="buttons">
+                        <a href="./login.html">Ingresa</a>
+                        <a href="./register.html">Registrate</a>
+                    </div>
+                </div>
+                <div class="hero-img">
+                    <img src="./Assets/img/hero-foto.jpg" alt="hero-foto">
+                </div>
+            </section>
+        </div>
+        <section class="nosotros" id="nosotros">
+            <div class="nosotros-text">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos un empresa que surge como un emprendimiento familiar que elabora sus productos de manera
+                    completamente artesanal y busca siempre brindar lo mejor a cada uno de nuestros clientes. 30 años de
+                    experiencia para darles el mejor servicio y los mejores sabores</p>
+            </div>
+            <div class="nosotros-img">
+                <img src="./Assets/img/fabrica.jpg" alt="nosotros-foto">
+            </div>
+        </section>
+        <section class="ventajas">
+            <h2>Nuestras Ventajas</h2>
+            <div class="ventajas-cards">
+                <div class="ventajas-it">
+                    <div class="ventajas-it-icon">
+                        <i class="fa-solid fa-3x fa-check"></i>
+                    </div>
+                    <div class="ventajas-it-desc">
+                        <h3>Elaborados con la mejor materia prima</h3>
+                        <p>
+                            Nuestros productos son lo mejor del mercado y hechos completamente de manera artesanal.
+                        </p>
+                    </div>
+                </div>
+                <div class="ventajas-it">
+                    <div class="ventajas-it-icon">
+                        <i class="fa-solid fa-3x fa-truck-ramp-box"></i>
+                    </div>
+                    <div class="ventajas-it-desc">
+                        <h3>Envíos en el acto!</h3>
+                        <p>
+                            En el menor tiempo posible para que disfrutes tu compra cuanto antes.
+                        </p>
+                    </div>
+                </div>
+                <div class="ventajas-it">
+                    <div class="ventajas-it-icon">
+                        <i class="fa-solid fa-3x fa-money-bill-wave"></i>
+                    </div>
+                    <div class="ventajas-it-desc">
+                        <h3>Más económicos</h3>
+                        <p>
+                            Ahorra dinero en el acto! Nos caracterizamos por nuestras ofertas, para que obtengamos
+                            productos con la mejor relación Beneficio/Costo
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="productos" id="productos">
+            <h2>Nuestros Productos</h2>
+            <div class="category-container">
+                <button class="category active">Todos</button>
+                <button class="category" data-category="kilo">Por kilo</button>
+                <button class="category" data-category="palito">Palitos</button>
+                <button class="category" data-category="especial">Especiales</button>
+            </div>
+            <div class="productos-container">
+                <!-- <div class="productos-it">
+                    <img src="./Assets/img/vainilla.jpg" alt="vainilla">
+                    <h3>Vainilla</h3>
+                    <span>$1000xkg</span>
+                    <button>Agregar</button>
+                </div>-->
+            </div>
+            <button class="btn-load">Ver Más</button>
+        </section>
+        <section class="contacto" id="contacto">
+            <form action="" class="formulario">
+                <h2>Contactános</h2>
+                <input type="text" placeholder="Ingrese su nombre">
+                <input type="text" placeholder="Ingrese su direccion">
+                <input type="email" placeholder="Ingrese su email">
+                <input type="number" placeholder="Ingrese un número de contacto">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Escriba aquí su mensaje"></textarea>
+                <input class="btn-enviar" id="btn-enviar" type="submit" value="Enviar">
+            </form>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.2757114727206!2d-58.9997564849432!3d-27.460674582894708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450c91cfb2b24b%3A0x347e576111f34a55!2sAv.%20Alberdi%201260%2C%20Resistencia%2C%20Chaco!5e0!3m2!1ses-419!2sar!4v1652305771013!5m2!1ses-419!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+    </main>
+    <footer>
+        <p>Hecho por Juan Nuñez</p>
+    </footer>
+    <script src="./Assets/data.js"></script>
+    <script src="./Assets/main.js"></script>
+</body>
+</html>
