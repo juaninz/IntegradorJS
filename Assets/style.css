@@ -40,7 +40,7 @@ header {
 }
 
 #logo {
-    font-size:16px;
+    font-size: 16px;
 }
 
 .navbar,
@@ -140,13 +140,14 @@ header {
 }
 
 .cart-item {
+    color: var(--negro);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    background-color: #2323234e;
+    background-color: var(--celeste);
     padding: 20px;
-    border: 1px solid var(--electric);
+    border: 1px solid var(--negro);
     border-radius: 10px;
 }
 
@@ -162,22 +163,13 @@ header {
 }
 
 .item-title {
-    color: var(--text-white);
     font-weight: 600;
     font-size: 14px;
 }
 
-.item-bid {
-    color: var(--text-gray);
-    font-weight: 300;
-    font-size: 12px;
-}
 
 .item-price {
-    background: linear-gradient(to right, #30cfd0, #c43ad6);
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
+    color: var(--negro);
     font-size: 16px;
     font-weight: 800;
 }
@@ -195,26 +187,21 @@ header {
     align-items: center;
     padding: 2px 8px;
     border-radius: 5px;
-    color: var(--text-white);
     font-weight: 400;
 }
 
-.item-quantity {
-    color: var(--text-gray);
+
+.up, .down {
+    background-color: var(--negro);
+    color: var(--blanco);
+    cursor: pointer;
 }
 
-.up {
-    border: 1px solid var(--electric);
-}
 
-.down {
-    background-color: var(--secondary);
-    border: 1px solid var(--electric);
-}
 
 .divider {
     margin-top: 20px;
-    border: 0.5px solid var(--electric);
+    border: 0.5px solid var(--blanco);
     width: 100%;
 }
 
@@ -226,12 +213,12 @@ header {
 }
 
 .cart-total p {
-    color: var(--text-white);
+    color: var(--blanco);
     font-weight: 700;
 }
 
 .cart-total span {
-    color: var(--text-white);
+    color: var(--blanco);
     font-weight: 400;
     font-size: 18px;
 }
@@ -244,7 +231,7 @@ header {
 }
 
 .empty-msg {
-    color: var(--text-gray);
+    color: var(--blanco);
     font-size: 14px;
 }
 
@@ -261,6 +248,30 @@ nav ul li a {
 nav li a:hover,
 li a:focus {
     background-size: 100% 2px;
+}
+
+
+.btn-buy,
+.btn-delete {
+    cursor: pointer;
+    padding: 10px 35px;
+    color: var(--negro);
+    background: var(--blanco);
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    transition: 0.3s all ease-out;
+}
+
+
+.btn-buy:hover {
+    border: 2px solid var(--negro);
+    background-color: var(--celeste);
+}
+
+.btn-delete:hover {
+    border: 2px solid var(--negro);
+    background-color: var(--celeste);
 }
 
 
@@ -281,7 +292,6 @@ li a:focus {
         width: 90%;
         flex-direction: column;
         background-color: var(--rojo);
-        border: 2px solid var(--electric);
         border-top: 0px;
         border-radius: 0px 0px 15px 15px;
         align-items: flex-start;
@@ -776,6 +786,19 @@ footer {
     background-color: var(--celeste);
 }
 
+.disabled {
+    background-color: var(--gris);
+    color: white;
+    cursor: not-allowed;
+    border: none;
+}
+
+.disabled:hover {
+    background-color: var(--gris);
+    color: white;
+    cursor: not-allowed;
+    border: none;
+}
 
 /* ERRORES FORMULARIOS
 /* Error / Success */
@@ -800,4 +823,25 @@ footer {
     margin: 8px 0px;
     max-width: 350px;
     text-align: center;
+}
+
+
+/*modal*/
+.add-modal {
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    background-color: green;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    transform: translateY(200%);
+}
+
+.active-modal {
+    transform: translateY(0);
+    transition: all 0.5s ease-in;
 }

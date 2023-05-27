@@ -72,61 +72,7 @@
     display: block;
 }
 
-/*Hover de los elementos "a" del navbar*/
-.navbar-list li {
-    position: relative;
-    padding: 0;
-}
 
-.navbar-list li a::after {
-    content: "";
-    height: 2px;
-    width: 100%;
-    background: var(--text-white);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.15s ease;
-}
 
-.navbar-list li a:hover::after {
-    transform-origin: bottom left;
-    transform: scaleX(1);
-}
 
-/*CARRITO */
-/*Despues de cambiar el carrito en el html y en styles.css , aplicamos una animación en hover*/
-.cart-icon {
-    transition: all 0.2s ease-out;
-}
 
-.cart-icon:hover {
-    color: var(--electric);
-    border-color: var(--electric);
-    transition: all 0.2s ease-in;
-}
-
-/*Botones del carrito*/
-.quantity-handler {
-    transition: all 0.2s ease-in;
-}
-
-.quantity-handler:hover {
-    cursor: pointer;
-    background-color: var(--electric);
-    transition: all 0.2s ease-in;
-}
-
-/*Botones comprar(carrito) y add(producto) y BENUCBER(Hero)*/
-.btn-add,
-.hero-info a {
-    transition: all 0.2s ease-out;
-}
-
-.btn-add:hover,
-.hero-info a:hover {
-    background-color: var(--fire);
-    transition: all 0.2s ease-in;
-}
