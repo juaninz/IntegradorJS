@@ -5,6 +5,15 @@ const showMoreBtn = document.querySelector(".btn-load");
 const categoriesContainer = document.querySelector(".category-container");
 const categoriesList = document.querySelectorAll(".category");
 
+const cartBtn = document.querySelector(".cart-label");
+const cartMenu = document.querySelector(".cart");
+const menuBtn = document.querySelector(".menu-label");
+const barsMenu = document.querySelector(".navbar-list");
+const overlay = document.querySelector(".overlay");
+const productsCart = document.querySelector(".cart-container");
+
+
+
 const registerForm = document.getElementById("form-contacto");
 const nameInput = document.getElementById("form-nombre");
 const dirInput = document.getElementById("form-direccion");
@@ -12,10 +21,6 @@ const emailInput = document.getElementById("form-email");
 const phoneInput = document.getElementById("form-tel");
 
 
-//menu hamburguesa
-const mostrarMenu = () => {
-    navBarList.classList.toggle("show")
-};
 
 //rendirazado
 const createProductTemplate = (product) => {
@@ -115,6 +120,55 @@ const applyFilter = ({ target }) => {
 	//Si no hay filtro activo, renderizo 1er array
 	renderProducts(appState.products[0]);
 };
+
+
+
+// logica menu y carrito
+const toggleCart = () => {
+	cartMenu.classList.toggle("open-cart");
+	if (barsMenu.classList.contains("open-menu")) {
+		barsMenu.classList.remove("open-menu");
+		return;
+	}
+	overlay.classList.toggle("show-overlay");
+};
+
+const toggleMenu = () => {
+	barsMenu.classList.toggle("open-menu");
+	if (cartMenu.classList.contains("open-cart")) {
+		cartMenu.classList.remove("open-cart");
+		return;
+	}
+	overlay.classList.toggle("show-overlay");
+};
+
+const closeOnScroll = () => {
+	if (
+		!barsMenu.classList.contains("open-menu") &&
+		!cartMenu.classList.contains("open-cart")
+	) {
+		return;
+	}
+	barsMenu.classList.remove("open-menu");
+	cartMenu.classList.remove("open-cart");
+	overlay.classList.remove("show-overlay");
+};
+
+const closeOnClick = (e) => {
+	if (!e.target.classList.contains("navbar-link")) {
+		return;
+	}
+	barsMenu.classList.remove("open-menu");
+	overlay.classList.remove("show-overlay");
+};
+
+const closeOnOverlayClick = () => {
+	barsMenu.classList.remove("open-menu");
+	cartMenu.classList.remove("open-cart");
+	overlay.classList.remove("show-overlay");
+};
+
+
 
 // Validación formulario
 
@@ -244,11 +298,15 @@ const submitHandler = (e) => {
 };
 
 const init = () => {
-    menu.addEventListener("click", mostrarMenu);
     renderProducts(appState.products[appState.currentProductsIndex]);
     showMoreBtn.addEventListener("click", showMoreProducts);
     categoriesContainer.addEventListener("click", applyFilter);
 
+	cartBtn.addEventListener("click", toggleCart);
+	menuBtn.addEventListener("click", toggleMenu);
+	window.addEventListener("scroll", closeOnScroll);
+	barsMenu.addEventListener("click", closeOnClick);
+	overlay.addEventListener("click", closeOnOverlayClick);
 
 	registerForm.addEventListener("submit", submitHandler);
 	nameInput.addEventListener("input", () => checkTextInput(nameInput));

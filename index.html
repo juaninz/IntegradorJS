@@ -13,27 +13,57 @@
 
 <body>
     <header>
-        <h1 class="main-title">My IceCream <i class="fa-solid fa-ice-cream"></i></h1>
-
+        <h1 id="logo">My IceCream <i class="fa-solid fa-ice-cream"></i></h1>
         <nav class="navbar">
-            <label class="header-btn" for="menu-toggle" id="menu-toggle">
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </label>
-            <!-- <input type="checkbox" class="check" id="menu-toggle"> -->
+            <div class="menu-label">
+                <img src="./assets/img/menu.png" alt="" class="menu-icon" />
+            </div>
+
             <ul class="navbar-list">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a class="navbar-link" href="#hero">Home</a></li>
+                <li><a class="navbar-link" href="#nosotros">Nosotros</a></li>
+                <li><a class="navbar-link" href="#productos">Productos</a></li>
+                <li><a class="navbar-link" href="#contacto">Contacto</a></li>
             </ul>
-            <a href="">
-                <i class="fa-solid fa-cart-shopping cart"></i>
-                <span id="totalItems"></span>
-            </a>
+            <div class="cart-label">
+                <i class="fa-solid fa-cart-shopping cart-icon">
+                    <div class="cart-bubble">0</div>
+                </i>
+            </div>
+            <div class="cart">
+                <h2>Tus Compras</h2>
+
+                <div class="cart-container">
+                    <!-- HOLA! SOY RODRI DEL PASADO CON UN EJEMPLO DE PRODUCTO EN EL CART -->
+
+                    <!-- <div class="cart-item">
+                        <img
+                            src="./assets/img/products/bunny.png"
+                            alt="Nft del carrito"
+                        />
+                        <div class="item-info">
+                            <h3 class="item-title">NOMBRE</h3>
+                            <p class="item-bid">Current bid</p>
+                            <span class="item-price">$BID ETH</span>
+                        </div>
+                        <div class="item-handler">
+                            <span class="quantity-handler down" data-id="ID">-</span>
+                            <span class="item-quantity">CANTIDAD</span>
+                            <span class="quantity-handler up" data-id="ID">+</span>
+                        </div>
+                    </div> -->
+                </div>
+
+                <span class="divider"></span>
+
+                <div class="cart-total">
+                    <p>Total:</p>
+                    <span class="total">18.3 ETH</span>
+                </div>
+                <button class="btn-buy">Comprar</button>
+                <button class="btn-delete">Vaciar carrito</button>
+            </div>
+            <div class="overlay"></div>
         </nav>
     </header>
     <main>
@@ -48,7 +78,7 @@
                     </div>
                 </div>
                 <div class="hero-img">
-                    <img src="./Assets/img/hero-foto.jpg" alt="hero-foto">
+                    <img id="hero-img" src="./Assets/img/hero-foto.jpg" alt="hero-foto">
                 </div>
             </section>
         </div>
@@ -60,7 +90,7 @@
                     experiencia para darles el mejor servicio y los mejores sabores</p>
             </div>
             <div class="nosotros-img">
-                <img src="./Assets/img/fabrica.jpg" alt="nosotros-foto">
+                <img id="nosotros-img" src="./Assets/img/fabrica.jpg" alt="nosotros-foto">
             </div>
         </section>
         <section class="ventajas">
@@ -160,6 +190,7 @@
     <footer>
         <p>Hecho por Juan Nuñez</p>
     </footer>
+    <div class="add-modal"></div>
     <script src="./Assets/data.js"></script>
     <script src="./Assets/main.js"></script>
 </body>
